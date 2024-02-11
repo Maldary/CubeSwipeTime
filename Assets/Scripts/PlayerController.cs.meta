@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 51d715714a7b5084fa4d6598e85796e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PlusSound: {fileID: 8300000, guid: 464b67c947ee20242819ac4e39bd8d66, type: 3}
+  - arrowChecker: {instanceID: 0}
+  - gridMaze: {instanceID: 0}
+  - timer: {instanceID: 0}
+  - WinLoseDetect: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

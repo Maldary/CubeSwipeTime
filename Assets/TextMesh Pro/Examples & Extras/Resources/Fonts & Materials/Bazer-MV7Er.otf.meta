@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a3ca50f485c80784b99c6fafe15f1109
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bazer
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f2d22618b565d4f47b887d1ef98576f3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
