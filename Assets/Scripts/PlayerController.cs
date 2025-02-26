@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Timer timer;
     public AudioClip PlusSound;
     public AudioClip CollisionSound;
+    [SerializeField]
     private GameManager _gameManager;
     private int levelValue = 1;
     // public WinLoseText winLoseText;
@@ -90,10 +91,17 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(FinishRoutine());
                 _gameManager.AddLevelsToCount(levelValue);
+                PlayerPrefs.SetInt("isPreviusLevelWon",  PlayerPrefs.GetInt("isPreviusLevelWon", 0)+1);
             }
             else
             {
                 StartCoroutine(LooseRoutine());
+                if (_gameManager.levelsCount > _gameManager.highScoreValue)
+                {
+                    _gameManager.SetHighScore();
+                }
+                _gameManager.RefreshLevelsCount();
+                PlayerPrefs.SetInt("isPreviusLevelWon", 0);
             }
         });
     }

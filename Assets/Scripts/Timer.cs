@@ -8,20 +8,26 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public PlayerController playerController;
-    public float initialTime = 7f;
+    public float initialTime = 6f;
     private float currentTime;
+    [SerializeField]
+    private float lvlWinTimeDeacreser;
     public GridMaze gridMaze; 
     public TextMeshProUGUI timerDisplay;
   
     void Start()
     {
-        currentTime = initialTime;
+        currentTime = initialTime - PlayerPrefs.GetInt("isPreviusLevelWon", 0) * lvlWinTimeDeacreser;
         UpdateTimerDisplay();
         StartCoroutine(DecreaseTimer());
     }
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 
-        void UpdateTimerDisplay()
+    void UpdateTimerDisplay()
         {
             int seconds = Mathf.FloorToInt(currentTime);
             int milliseconds = Mathf.FloorToInt((currentTime - seconds) * 100);
@@ -37,6 +43,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator DecreaseTimer()
     {
+        Debug.Log(currentTime);
         while (true)
         {
             yield return new WaitForSeconds(0.1f);
@@ -47,20 +54,12 @@ public class Timer : MonoBehaviour
             {
                 UpdateTimerOO();
                 playerController.StartMove();
-                if (gridMaze.IsMazePassed())
-                {
-                    UpdateTimer();
-                }
+             
                 yield return new WaitForSeconds(playerController.stepCounts*0.4f);
                 UpdateTimerDisplay();
             }
         }
     }
-          public void UpdateTimer()
-           {
-               initialTime -= 0.3f;
-           }
-
 }
 
  
